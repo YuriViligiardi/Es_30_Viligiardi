@@ -7,6 +7,38 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <form action="gestioneacquisto.php" method="get"></form>
+    <form action="gestioneacquisto.php" method="get">
+        <div>
+            <p>Inserisci il nome</p>
+            <input type="text" name="name">
+            <p>Inserisci il cognome</p>
+            <input type="text" name="surname">
+            <p>Inserisci il codice fiscale</p>
+            <input type="text" name="cf">
+            <p>Seleziona il settore</p>
+            <select name="sector">
+                <option value="curva">curva</option>
+                <option value="tribuna centrale">tribuna centrale</option>
+                <option value="tribuna d'onore">tribuna d'onore</option>
+            </select>
+            <p>Se in possesso puoi utilizzare un codice sconto</p>
+            <input type="text" name="codDiscount">
+            <p>Seleziona quanti biglietti desideri</p>
+            <input type="radio" name="numBiglietti" value="Biglietto unico"> Biglietto unico
+            <input type="radio" name="numBiglietti" value="Più biglietti" onclick="changeVisibility()"> Più biglietti
+                <div id="divBiglietti">
+                    <p>Inserisci il codice fiscale della persona aggiunta</p>
+                    <input type="text" name="cfPers">
+                    <p>Inserisci quanti biglietti aggiuntivi vuoi (MAX 4)</p>   
+                    <input type="number" name="numPers">
+                </div>
+            <br>
+            <br>
+            <input type="submit">
+        </div>
+    </form>
+
+    <!-- script -->
+    <script src="./script.js"></script>
 </body>
 </html>
