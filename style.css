@@ -1,3 +1,67 @@
+body {
+    box-sizing: border-box;
+    background-image: url('./images/Sfondo.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#divForm {
+    background-color: white;
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 30px;
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    position: relative;
+    z-index: 0;
+}
+
+#stadio_div{
+    position: absolute;
+    bottom: 1px;
+    right: 0px;
+    width: 35%; 
+    height: auto;
+    border-radius: 30px;
+    z-index: -1;
+}
+
+#showData{
+    background-color: white;
+    text-align: center;
+    border: 4px solid black;
+    border-radius: 30px;
+    width: 45%;
+    height: 550px;
+    margin: auto;
+    margin-top: 35px;
+    padding: 30px;
+}
+
 #divBiglietti {
     display: none;
+    margin-top: 5px;
 } 
+
+#buttonIn {
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    width: 10%;
+}
+
+#buttonDe {
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 5px;
+    width: 10%;
+}
+
