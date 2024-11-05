@@ -1,9 +1,10 @@
 body {
     box-sizing: border-box;
+    background-color: darkblue;
     background-image: url('./images/Sfondo.webp');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    /* background-position: center; */
 }
 
 #divForm {
@@ -12,7 +13,7 @@ body {
     border: 4px solid black;
     border-radius: 30px;
     width: 50%;
-    height: 100%;
+    /* height: 100%; */
     margin: auto;
     margin-top: 50px;
     padding: 30px;
@@ -35,11 +36,13 @@ body {
     text-align: center;
     border: 4px solid black;
     border-radius: 30px;
-    width: 45%;
-    height: 550px;
+    width: 50%;
+    /* height: 100%; */
     margin: auto;
-    margin-top: 35px;
+    margin-top: 50px;
     padding: 30px;
+    position: relative;
+    z-index: 0;
 }
 
 #divBiglietti {

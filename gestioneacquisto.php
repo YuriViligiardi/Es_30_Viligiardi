@@ -29,11 +29,15 @@
         showData($listData);
 
         function getCf($lCf){
+            $num = 1;
             for ($i=1; $i < 5; $i++) { 
                 $cfPers = "cfPers" . $i;
                 if (isset($_GET[$cfPers])) {
                     $newCf = $_GET[$cfPers];
-                    $lCf[$i] = $newCf;
+                    if (!($newCf == null || $newCf == " ")) {
+                        $lCf[$num] = $newCf;
+                        $num++;
+                    }
                 }
             }
             return $lCf;
@@ -49,9 +53,9 @@
         }
 
         function discount($cs, $c){
-            if ($cs == "FIRENZE5") {
+            if (strtoupper($cs) == "FIRENZE5") {
                 return ($c / 100) * 5;
-            } else if (isset($cs)) {
+            } else if ($cs == null) {
                 return "Nessun codice inserito";
             } else {
                 return "Codice inesistente";
@@ -89,23 +93,28 @@
 
         function showData($ld){
             echo "<div id='showData'>";
+                echo "<img id='stadio_div' src='./images/Stadio-Div.jpg' alt='Stadio-Div'>";
                 echo "<h1>DATI DEL BIGLIETTO</h1>"; 
                 foreach ($ld as $key => $value) {
                     if ($key == "ListCfAgg") {
-                        echo "<p><b><i>Lista codici fiscali persone Aggiunte</i></b></p>";
-                        // echo "<ul>";
-                            for ($i=1; $i <= count($value); $i++) { 
-                                //echo "<li>" . $value[$i] . "</li>";
-                                echo "<p>- " . $value[$i] . "</p>";
-                            }
+                        if (!(count($value) == 0)) {
+                            echo "<p><b><i>Lista codici fiscali persone aggiunte:</i></b></p>";
+                                for ($i=1; $i <= count($value); $i++) { 
+                                    echo "<p>- " . $value[$i] . "</p>";
+                                }
                             echo "<p> ... </p>";
-                        //echo "</ul>";
+                        }
                     } elseif ($key == "Costo" || $key == "Sconto" || $key == "Costo totale") {
                         echo "<p>";
                         echo "<span><b><i>$key: </i></b></span>"; 
-                        echo $value . " euro"; 
+                        if ($key == "Sconto" && ($value == "Codice inesistente" || $value == "Nessun codice inserito")) {
+                            echo $value;
+                        } else {
+                            echo $value . " euro"; 
+                        }
                         echo "</p>";
                     } else {
+                        
                         echo "<p>";
                         echo "<span><b><i>$key: </i></b></span>"; 
                         echo $value; 
